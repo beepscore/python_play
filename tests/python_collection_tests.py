@@ -11,7 +11,8 @@ class TestPythonCollections(unittest.TestCase):
     def test_types(self):
         """
         Python doesn't have a notion of "primitive" types
-        everything is an object, including int and bool
+        everything is an object and has a type, including int and bool
+        Some objects have a non 'builtin' type
         A variable doesn't have a type, but its value does.
         """
         # bool
@@ -53,7 +54,7 @@ class TestPythonCollections(unittest.TestCase):
 
     def test_dict_mixed_values(self):
         """
-        dict values may have different types. This is not unusual
+        dict values may have different types. This is not unusual.
         """
         my_list = [1, 'k']
         my_dict = {'a': 7, 'b': 'foo', 'd': my_list}
@@ -61,6 +62,25 @@ class TestPythonCollections(unittest.TestCase):
         self.assertEqual(my_dict['a'], 7)
         self.assertEqual(my_dict['b'], 'foo')
         self.assertEqual(my_dict['d'], my_list)
+
+    def test_dict_mixed_keys(self):
+        """
+        dict keys may have different types.  I think this is atypical and could be confusing.
+        keys must be hashable, presumably to construct a hash table
+        https://docs.python.org/3/library/stdtypes.html#dict
+        """
+        my_dict = {'a': 7, 3: 'foo'}
+        self.assertEqual(len(my_dict.keys()), 2)
+
+        # https://stackoverflow.com/questions/40141901/cannot-do-type-is-tests-on-dict-keys-dict-values-dict-items
+        # this fails because dict.keys() returns a "view object", not a list
+        # self.assertEqual(my_dict.keys(), ('a', 3))
+        
+        self.assertEqual(type(my_dict.keys()), {}.keys().__class__)
+        self.assertEqual(list(my_dict.keys()), ['a', 3])
+
+        self.assertEqual(my_dict['a'], 7)
+        self.assertEqual(my_dict[3], 'foo')
 
     def test_list_mixed_types(self):
         """
