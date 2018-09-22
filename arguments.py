@@ -1,10 +1,21 @@
 #!/usr/bin/env python3
 
 
+def multiply_with_positional_args(*args):
+    """
+    https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters
+    :param args: a tuple with positional arguments
+    :return:
+    """
+    foo = args[0]
+    bar = args[1]
+    return foo + bar
+
+
 def add_values(**kwargs):
     """
     https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters
-    :param kwargs:
+    :param kwargs: a dictionary with keyword arguments
     :return:
     """
     # get is safer method, if not in dictionary returns None instead of KeyError
