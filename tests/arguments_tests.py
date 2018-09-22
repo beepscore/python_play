@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
-from arguments import multiply_with_positional_args, add_with_kwargs
+from python_collections_play.arguments import multiply_with_positional_args, add_with_kwargs
 
 
 class TestArguments(unittest.TestCase):
