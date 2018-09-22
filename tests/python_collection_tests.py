@@ -75,8 +75,10 @@ class TestPythonCollections(unittest.TestCase):
         # https://stackoverflow.com/questions/40141901/cannot-do-type-is-tests-on-dict-keys-dict-values-dict-items
         # this fails because dict.keys() returns a "view object", not a list
         # self.assertEqual(my_dict.keys(), ('a', 3))
-        
+
         self.assertEqual(type(my_dict.keys()), {}.keys().__class__)
+
+        # python 3.7 guarantees dictionary maintains insertion order
         self.assertEqual(list(my_dict.keys()), ['a', 3])
 
         self.assertEqual(my_dict['a'], 7)
