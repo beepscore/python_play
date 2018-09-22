@@ -63,10 +63,10 @@ class TestPythonCollections(unittest.TestCase):
         self.assertEqual(my_dict['b'], 'foo')
         self.assertEqual(my_dict['d'], my_list)
 
-    def test_dict_mixed_keys(self):
+    def test_dict_keys_mixed_types(self):
         """
         dict keys may have different types.  I think this is atypical and could be confusing.
-        keys must be hashable, presumably to construct a hash table
+        keys must be hashable, in order to construct a hash table
         https://docs.python.org/3/library/stdtypes.html#dict
         """
         my_dict = {'a': 7, 3: 'foo'}
@@ -83,6 +83,19 @@ class TestPythonCollections(unittest.TestCase):
 
         self.assertEqual(my_dict['a'], 7)
         self.assertEqual(my_dict[3], 'foo')
+
+    def test_dict_key_tuple(self):
+        """
+        tuple can be used as a key because it is hashable
+        """
+        my_tuple = ('a', 'b')
+        my_dict = {my_tuple: 7}
+        self.assertEqual(my_dict[my_tuple], 7)
+
+        my_hash = hash(my_tuple)
+        # e.g. 7438149540147407425
+        self.assertIsNotNone(my_hash)
+        self.assertEqual(type(my_hash), int)
 
     def test_list_mixed_types(self):
         """
