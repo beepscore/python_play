@@ -43,6 +43,14 @@ class TestPythonCollections(unittest.TestCase):
         self.assertEqual(my_tuple[-1], 'c')
         self.assertEqual(my_tuple[:-1], ('a', 'b'))
 
+    def test_str_slice(self):
+        """
+        slice works on str similar to list
+        """
+        my_str = 'Slartibartfast'
+        self.assertEqual(my_str[-1], 't')
+        self.assertEqual(my_str[:-1], 'Slartibartfas')
+
 
 if __name__ == '__main__':
     unittest.main()
