@@ -51,6 +51,18 @@ class TestPythonCollections(unittest.TestCase):
         self.assertEqual(my_str[-1], 't')
         self.assertEqual(my_str[:-1], 'Slartibartfas')
 
+    def test_list_mixed_types(self):
+        """
+        list can contain different types. However this is atypical and could be confusing.
+        :return:
+        """
+        my_dict = {'a': 1, 'b': 5, 'd': -9}
+        my_list = [1, 'k', my_dict]
+        self.assertEqual(len(my_list), 3)
+        self.assertEqual(my_list[0], 1)
+        self.assertEqual(my_list[1], 'k')
+        self.assertEqual(my_list[2], my_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
