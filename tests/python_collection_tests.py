@@ -51,10 +51,20 @@ class TestPythonCollections(unittest.TestCase):
         self.assertEqual(my_str[-1], 't')
         self.assertEqual(my_str[:-1], 'Slartibartfas')
 
+    def test_dict_mixed_values(self):
+        """
+        dict values may have different types. This is not unusual
+        """
+        my_list = [1, 'k']
+        my_dict = {'a': 7, 'b': 'foo', 'd': my_list}
+        self.assertEqual(len(my_dict.keys()), 3)
+        self.assertEqual(my_dict['a'], 7)
+        self.assertEqual(my_dict['b'], 'foo')
+        self.assertEqual(my_dict['d'], my_list)
+
     def test_list_mixed_types(self):
         """
         list can contain different types. However this is atypical and could be confusing.
-        :return:
         """
         my_dict = {'a': 1, 'b': 5, 'd': -9}
         my_list = [1, 'k', my_dict]
