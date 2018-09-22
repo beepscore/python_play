@@ -9,10 +9,10 @@ def multiply_with_positional_args(*args):
     """
     foo = args[0]
     bar = args[1]
-    return foo + bar
+    return foo * bar
 
 
-def add_values(**kwargs):
+def add_with_kwargs(**kwargs):
     """
     https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters
     :param kwargs: a dictionary with keyword arguments
