@@ -31,6 +31,10 @@ class TestPythonCollections(unittest.TestCase):
         # float
         self.assertEqual(type(3.14), float)
 
+        # list
+        my_list = [1, 5, -9]
+        self.assertEqual(type(my_list), list)
+
         # dictionary has type dict
         my_dict = {'a': 1, 'b': 5, 'd': -9}
         self.assertEqual(type(my_dict), dict)
