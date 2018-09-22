@@ -14,6 +14,7 @@ class TestPythonCollections(unittest.TestCase):
         """
         my_tuple = ('a', 'b', 'c')
         self.assertEqual(my_tuple[-1], 'c')
+        self.assertEqual(my_tuple[:-1], ('a', 'b'))
 
 
 if __name__ == '__main__':
