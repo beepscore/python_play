@@ -8,6 +8,9 @@ class Attie:
 
         # Caution after instantiation,
         # if caller changes a_dict this will change self.a_dict, which probably is undesired.
+        # In Python dictionary is passed as a reference.
+        # In Swift, dictionary is a value type, automatically acts as a copy, which is more thread safe.
+        # https://developer.apple.com/swift/blog/?id=10
         self.a_dict = a_dict
 
         # make a deep copy. If caller changes b_dict this won't accidentally change self.b_dict

@@ -10,9 +10,6 @@ class TestPythonCollections(unittest.TestCase):
 
         sample_a_dict = {'a': 3}
         sample_b_dict = {'b': 14}
-        # In Python dictionary is passed as a reference.
-        # In Swift, dictionary is a value type, automatically acts as a copy, which is more thread safe.
-        # https://developer.apple.com/swift/blog/?id=10
         attie = Attie(sample_a_dict, sample_b_dict)
         self.assertEqual(attie.a_dict, sample_a_dict)
         self.assertEqual(attie.b_dict, sample_b_dict)
