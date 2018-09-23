@@ -8,15 +8,26 @@ class TestPythonCollections(unittest.TestCase):
 
     def test_mutate_attribute(self):
 
-        sample_dict = {'a': 3}
-        attie = Attie(sample_dict)
-        self.assertEqual(attie.my_dict, sample_dict)
+        sample_a_dict = {'a': 3}
+        sample_b_dict = {'b': 14}
+        # In Python dictionary is passed as a reference.
+        # In Swift, dictionary is a value type, automatically acts as a copy, which is more thread safe.
+        # https://developer.apple.com/swift/blog/?id=10
+        attie = Attie(sample_a_dict, sample_b_dict)
+        self.assertEqual(attie.a_dict, sample_a_dict)
+        self.assertEqual(attie.b_dict, sample_b_dict)
 
-        # mutate sample_dict
-        sample_dict['b'] = 4
-        self.assertEqual(sample_dict, {'a': 3, 'b': 4})
-        # gack! this changed attie.my_dict too!
-        self.assertEqual(attie.my_dict, {'a': 3, 'b': 4})
+        # mutate sample_a_dict
+        sample_a_dict['c'] = 4
+        self.assertEqual(sample_a_dict, {'a': 3, 'c': 4})
+        # gack! this changed attie.a_dict too!
+        self.assertEqual(attie.a_dict, {'a': 3, 'c': 4})
+
+        # mutate sample_b_dict
+        sample_b_dict['g'] = 17
+        self.assertEqual(sample_b_dict, {'b': 14, 'g': 17})
+        # didn't change attie.b_dict, because Attie.__init__ makes a deep copy
+        self.assertEqual(attie.b_dict, {'b': 14})
 
 
 if __name__ == '__main__':
