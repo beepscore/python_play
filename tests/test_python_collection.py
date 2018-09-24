@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
+import decimal
 
 
 class TestPythonCollections(unittest.TestCase):
@@ -23,6 +24,10 @@ class TestPythonCollections(unittest.TestCase):
 
         # float
         self.assertEqual(type(3.14), float)
+
+        # decimal- must import it
+        y = decimal.Decimal(5)
+        self.assertEqual(type(y), decimal.Decimal)
 
         # str
         my_str = 'hi mom'
