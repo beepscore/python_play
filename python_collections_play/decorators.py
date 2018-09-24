@@ -21,3 +21,9 @@ class Decorators:
     def ordinary():
         print('I am ordinary')
 
+    # threw TypeError 'staticmethod' object is not callable
+    # https://stackoverflow.com/questions/45070196/python-decorator-for-class-method-and-static-method?noredirect=1&lq=1
+    # @staticmethod
+    # @make_pretty
+    # def ordinary2():
+    #     print('I am ordinary2')
