@@ -4,7 +4,7 @@ import unittest
 from python_collections_play.user import User
 
 
-class TestPythonCollections(unittest.TestCase):
+class TestUser(unittest.TestCase):
 
     def test_add_attribute(self):
 
