@@ -50,6 +50,9 @@ class TestDictionaries(unittest.TestCase):
 
         self.assertEqual(my_dict['a'], 7)
         self.assertEqual(my_dict[3], 'foo')
+        self.assertEqual(my_dict.get(3), 'foo')
+        # get avoids KeyError if not in dictionary
+        self.assertEqual(my_dict.get(8), None)
 
     def test_dict_key_tuple(self):
         """
@@ -71,6 +74,10 @@ class TestDictionaries(unittest.TestCase):
         nested['a'] = {'b': 3}
         # print(nested)
         self.assertEqual(nested['a']['b'], 3)
+        self.assertEqual(nested['a'].get('b'), 3)
+
+        # get avoids KeyError if not in dictionary
+        self.assertEqual(nested['a'].get('c'), None)
 
     # TODO: consider add default dict
 
