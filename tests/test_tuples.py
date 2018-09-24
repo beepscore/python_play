@@ -18,6 +18,8 @@ class TestTuples(unittest.TestCase):
         Point = namedtuple('Point', 'x, y')
         my_point = Point(3, 5)
         self.assertEqual(type(my_point), Point)
+        self.assertEqual(my_point.x, 3)
+        self.assertEqual(my_point.y, 5)
 
     def test_tuple_slice(self):
         """
