@@ -4,12 +4,12 @@ import unittest
 import decimal
 
 
-class TestPythonCollections(unittest.TestCase):
+class TestType(unittest.TestCase):
     """
     This class isn't meant to test Python's methods, but check my understanding.
     """
 
-    def test_types(self):
+    def test_type(self):
         """
         Python doesn't have a notion of "primitive" types
         everything is an object and has a type, including int and bool
