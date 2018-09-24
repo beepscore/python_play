@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import unittest
-from collections import namedtuple
 
 
 class TestPythonCollections(unittest.TestCase):
@@ -29,15 +28,6 @@ class TestPythonCollections(unittest.TestCase):
         my_str = 'hi mom'
         self.assertEqual(type(my_str), str)
 
-        # tuple
-        self.assertEqual(type((1, 'a')), tuple)
-
-        # namedtuple
-        # https://stackoverflow.com/questions/2970608/what-are-named-tuples-in-python#2970722
-        Point = namedtuple('Point', 'x, y')
-        my_point = Point(3, 5)
-        self.assertEqual(type(my_point), Point)
-
         # list
         my_list = [1, 5, -9]
         self.assertEqual(type(my_list), list)
@@ -46,13 +36,7 @@ class TestPythonCollections(unittest.TestCase):
         my_dict = {'a': 1, 'b': 5, 'd': -9}
         self.assertEqual(type(my_dict), dict)
 
-    def test_tuple_slice(self):
-        """
-        slice works on tuple similar to list
-        """
-        my_tuple = ('a', 'b', 'c')
-        self.assertEqual(my_tuple[-1], 'c')
-        self.assertEqual(my_tuple[:-1], ('a', 'b'))
+        # TODO: consider add default dict, nested dictionary
 
     def test_str_slice(self):
         """
@@ -96,7 +80,7 @@ class TestPythonCollections(unittest.TestCase):
 
     def test_dict_key_tuple(self):
         """
-        tuple can be used as a key because it is hashable
+        tuple containing only hashables can be used as a key because it is hashable
         """
         my_tuple = ('a', 'b')
         my_dict = {my_tuple: 7}
