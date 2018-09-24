@@ -33,10 +33,6 @@ class TestPythonCollections(unittest.TestCase):
         my_str = 'hi mom'
         self.assertEqual(type(my_str), str)
 
-        # list
-        my_list = [1, 5, -9]
-        self.assertEqual(type(my_list), list)
-
     def test_str_slice(self):
         """
         slice works on str similar to list
@@ -44,17 +40,6 @@ class TestPythonCollections(unittest.TestCase):
         my_str = 'Slartibartfast'
         self.assertEqual(my_str[-1], 't')
         self.assertEqual(my_str[:-1], 'Slartibartfas')
-
-    def test_list_mixed_types(self):
-        """
-        list can contain different types. However this is atypical and could be confusing.
-        """
-        my_dict = {'a': 1, 'b': 5, 'd': -9}
-        my_list = [1, 'k', my_dict]
-        self.assertEqual(len(my_list), 3)
-        self.assertEqual(my_list[0], 1)
-        self.assertEqual(my_list[1], 'k')
-        self.assertEqual(my_list[2], my_dict)
 
 
 if __name__ == '__main__':
