@@ -19,8 +19,6 @@ class TestDictionaries(unittest.TestCase):
         my_dict = {'a': 1, 'b': 5, 'd': -9}
         self.assertEqual(type(my_dict), dict)
 
-        # TODO: consider add default dict, nested dictionary
-
     def test_dict_mixed_values(self):
         """
         dict values may have different types. This is not unusual.
@@ -65,6 +63,16 @@ class TestDictionaries(unittest.TestCase):
         # e.g. 7438149540147407425
         self.assertIsNotNone(my_hash)
         self.assertEqual(type(my_hash), int)
+
+    def test_nested_dict(self):
+        nested = dict()
+        # didn't work
+        # nested['a']['b'] = 3
+        nested['a'] = {'b': 3}
+        # print(nested)
+        self.assertEqual(nested['a']['b'], 3)
+
+    # TODO: consider add default dict
 
 
 if __name__ == '__main__':
