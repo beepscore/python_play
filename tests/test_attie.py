@@ -5,6 +5,7 @@ from python_collections_play.attie import Attie
 
 
 class TestPythonCollections(unittest.TestCase):
+    """ test object attributes"""
 
     def test_mutate_attribute(self):
 
