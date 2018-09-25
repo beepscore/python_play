@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
-from python_collections_play.decorators import Decorators
+from decorators import Decorators
 
 
 class TestDecorators(unittest.TestCase):

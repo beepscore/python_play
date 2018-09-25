@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
-from python_collections_play.user import User
+from user import User
 
 
 class TestUser(unittest.TestCase):

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest
-from python_collections_play.arguments import multiply_with_positional_args
-from python_collections_play.arguments import cat_plus_dog, sum_of_kwargs_values
-from python_collections_play.arguments import func_param_mutable_default_antipattern, func_param_immutable_default_safer
+from arguments import multiply_with_positional_args
+from arguments import cat_plus_dog, sum_of_kwargs_values
+from arguments import func_param_mutable_default_antipattern, func_param_immutable_default_safer
 
 
 class TestArguments(unittest.TestCase):
