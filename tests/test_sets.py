@@ -31,6 +31,11 @@ class TestSets(unittest.TestCase):
         self.assertEqual(len(my_set), 3)
         self.assertTrue('a' in my_set)
 
+    def test_set_no_order(self):
+        my_set = {1, 'a', False}
+        expected_no_order = {'a', False, 1}
+        self.assertEqual(my_set, expected_no_order)
+
 
 if __name__ == '__main__':
     unittest.main()
