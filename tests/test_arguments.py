@@ -11,7 +11,11 @@ class TestArguments(unittest.TestCase):
         self.assertEqual(multiply_with_positional_args(*(3, 6)), 18)
 
     def test_cat_plus_dog(self):
+        self.assertEqual(cat_plus_dog(**{}), None)
+        self.assertEqual(cat_plus_dog(**{'dog': None}), None)
+        self.assertEqual(cat_plus_dog(**{'dog': 4}), 4)
         self.assertEqual(cat_plus_dog(**{'dog': 4, 'cat': 3}), 7)
+        # ignores zebra
         self.assertEqual(cat_plus_dog(**{'dog': 4, 'cat': 3, 'zebra': 9}), 7)
 
     def test_sum_of_kwargs_values(self):

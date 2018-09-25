@@ -22,7 +22,13 @@ def cat_plus_dog(**kwargs):
     # https://stackoverflow.com/questions/11041405/why-dict-getkey-instead-of-dictkey#11041421
     a = kwargs.get('cat')
     b = kwargs.get('dog')
-    return a + b
+
+    if a is None:
+        return b
+    elif b is None:
+        return a
+    else:
+        return a + b
 
 
 def sum_of_kwargs_values(**kwargs):
