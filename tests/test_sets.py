@@ -19,7 +19,6 @@ class TestSets(unittest.TestCase):
         my_set = {1, 5, -9}
         self.assertEqual(type(my_set), set)
 
-        # frozenset is immutable
         my_frozenset = frozenset([1, 5, -9])
         self.assertEqual(type(my_frozenset), frozenset)
 
@@ -37,6 +36,10 @@ class TestSets(unittest.TestCase):
         self.assertEqual(my_set, expected_no_order)
 
     def test_set_mutable(self):
+        """
+        set is mutable
+        frozenset is immutable
+        """
         my_set = {1, 'a', False}
         my_set.add('frog')
         self.assertEqual(my_set, {1, 'frog', False, 'a'})
