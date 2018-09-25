@@ -12,7 +12,7 @@ def multiply_with_positional_args(*args):
     return foo * bar
 
 
-def add_with_kwargs(**kwargs):
+def cat_plus_dog(**kwargs):
     """
     https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters
     :param kwargs: a dictionary with arbitrary number of keyword arguments
