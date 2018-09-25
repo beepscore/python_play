@@ -36,6 +36,15 @@ class TestSets(unittest.TestCase):
         expected_no_order = {'a', False, 1}
         self.assertEqual(my_set, expected_no_order)
 
+    def test_set_mutable(self):
+        my_set = {1, 'a', False}
+        my_set.add('frog')
+        self.assertEqual(my_set, {1, 'frog', False, 'a'})
+        my_set.remove(False)
+        self.assertEqual(my_set, {1, 'frog', 'a'})
+        my_set.clear()
+        self.assertEqual(my_set, set())
+
 
 if __name__ == '__main__':
     unittest.main()
