@@ -4,7 +4,7 @@ import unittest
 from arguments_default import func_param_mutable_default_antipattern, func_param_immutable_default_safer
 
 
-class TestArguments(unittest.TestCase):
+class TestArgumentsDefault(unittest.TestCase):
 
     def test_func_param_with_mutable_default_antipattern(self):
         """
