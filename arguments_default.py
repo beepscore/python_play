@@ -8,6 +8,15 @@ http://effbot.org/zone/default-values.htm
 
 # “Least Astonishment” and the Mutable Default Argument
 https://stackoverflow.com/questions/1132941/least-astonishment-and-the-mutable-default-argument?rq=1
+
+"... especially important to understand when a default parameter is a mutable object,
+such as a list or a dictionary: if the function modifies the object
+(e.g. by appending an item to a list), the default value is in effect modified.
+This is generally not what was intended.
+A way around this is to use None as the default,
+and explicitly test for it in the body of the function"
+https://docs.python.org/3/reference/compound_stmts.html#function-definitions
+
 """
 
 
@@ -26,15 +35,6 @@ def func_param_mutable_default_antipattern(collection=[]):
 def func_param_immutable_default_safer(collection=None):
     """
     :param collection: a collection. default None which is immutable and therefor safer.
-
-    "... especially important to understand when a default parameter is a mutable object,
-    such as a list or a dictionary: if the function modifies the object
-    (e.g. by appending an item to a list), the default value is in effect modified.
-    This is generally not what was intended.
-    A way around this is to use None as the default,
-    and explicitly test for it in the body of the function
-    https://docs.python.org/3/reference/compound_stmts.html#function-definitions
-
     :return: collection by appending 'thing'
     """
     if collection is None:
