@@ -35,3 +35,6 @@ class TestUser(unittest.TestCase):
         self.assertEqual(user.ball, 'red')
         self.assertEqual(user.__dict__, {'ball': 'red'})
 
+
+if __name__ == '__main__':
+    unittest.main()
