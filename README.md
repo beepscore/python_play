@@ -11,3 +11,12 @@ https://www.programiz.com/python-programming/decorator
 
 # Results
 See unit tests for expected behavior.
+
+## how to run unit tests
+
+### from terminal command line
+
+    python3 -m unittest discover -s tests/
+
+### from pycharm
+set configuration "unit tests"
