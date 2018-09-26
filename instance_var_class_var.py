@@ -3,6 +3,7 @@
 
 class InstanceVarClassVar:
 
+    # reference this as InstanceVarClassVar.class_var
     class_var = 3
 
     def __init__(self, instance_var):
