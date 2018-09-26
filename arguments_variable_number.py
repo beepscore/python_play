@@ -7,6 +7,7 @@ https://stackoverflow.com/questions/919680/can-a-variable-number-of-arguments-be
 https://stackoverflow.com/questions/36901/what-does-double-star-asterisk-and-star-asterisk-do-for-parameters
 """
 
+
 def multiply_with_positional_args(*args):
     """
     :param args: a tuple with arbitrary number of positional arguments
