@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 import unittest
-from arguments import multiply_with_positional_args
-from arguments import cat_plus_dog, sum_of_kwargs_values
+from arguments_variable_number import multiply_with_positional_args
+from arguments_variable_number import cat_plus_dog, sum_of_kwargs_values
 
 
-class TestArguments(unittest.TestCase):
+class TestArgumentsVariableNumber(unittest.TestCase):
 
     def test_multiply_with_positional_args(self):
         self.assertEqual(multiply_with_positional_args(*(3, 6)), 18)
