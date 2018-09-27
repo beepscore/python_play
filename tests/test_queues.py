@@ -31,6 +31,18 @@ class TestQueues(unittest.TestCase):
         self.assertEqual(q.get(), 'b')
         self.assertEqual(q.get(), 'a')
 
+    def test_priority_queue(self):
+        q = queue.PriorityQueue()
+        q.put(700, 'a')
+        q.put(500, 'b')
+        q.put(900, 'c')
+        q.put(300, 'd')
+        # return lowest priority first
+        self.assertEqual(q.get(), 300)
+        self.assertEqual(q.get(), 500)
+        self.assertEqual(q.get(), 700)
+        self.assertEqual(q.get(), 900)
+
 
 if __name__ == '__main__':
     unittest.main()
