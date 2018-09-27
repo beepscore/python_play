@@ -6,6 +6,9 @@ class Animal:
     def __init__(self, name: str):
         self.name = name
 
+    def speak(self) -> str:
+        return 'hi'
+
 
 class Dog(Animal):
     """
@@ -21,5 +24,13 @@ class Dog(Animal):
         :param name:
         """
         super().__init__(name)
+
+    def speak(self) -> str:
+        """
+        override super speak()
+        :return:
+        """
+        # this implementation calls super() method, but doesn't have to
+        return super().speak() + ', ' + 'woof'
 
 

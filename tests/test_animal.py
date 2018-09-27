@@ -9,6 +9,7 @@ class TestAnimal(unittest.TestCase):
     def test_init(self):
         my_dog = animal.Dog('fido')
         self.assertEqual(my_dog.name, 'fido')
+        self.assertEqual(my_dog.speak(), 'hi, woof')
 
 
 if __name__ == '__main__':
