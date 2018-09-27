@@ -10,7 +10,8 @@ class InstanceAttrClassAttr:
     """
 
     # add attribute to the class object, not to an instance of the class
-    # this is roughly similar to a class variable
+    # This is roughly similar to a class variable.
+    # In Swift, a variable declared here would be an instance variable unless annotated @static
     # reference this as InstanceVarClassVar.class_attr
     class_attr = 3
 
