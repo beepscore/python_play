@@ -5,9 +5,6 @@ from instance_attr_class_attr import InstanceAttrClassAttr
 
 
 class TestInstanceAttrClassAttr(unittest.TestCase):
-    """
-    This class isn't meant to test Python's methods, but check my understanding.
-    """
 
     def test_class_attr(self):
 

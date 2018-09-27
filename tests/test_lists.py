@@ -4,9 +4,6 @@ import unittest
 
 
 class TestLists(unittest.TestCase):
-    """
-    This class isn't meant to test Python's methods, but check my understanding.
-    """
 
     def test_type(self):
         """
