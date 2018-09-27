@@ -93,7 +93,8 @@ class TestDictionaries(unittest.TestCase):
 
     def test_defauldict(self):
         kwargs = {'a': 5, 'e': 9}
-        # construct argument is a 'callable'
+        # constructor first argument is a 'callable'
+        # tells default dict to default to an int 0
         my_defaultdict = defaultdict(int, **kwargs)
         self.assertEqual(my_defaultdict, {'a': 5, 'e': 9})
 
