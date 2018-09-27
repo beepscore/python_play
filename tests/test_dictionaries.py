@@ -79,6 +79,10 @@ class TestDictionaries(unittest.TestCase):
         # get avoids KeyError if not in dictionary
         self.assertEqual(nested['a'].get('c'), None)
 
+    def test_dict_comprehension(self):
+        my_dict = {key: key + 5 for key in range(0, 3)}
+        self.assertEqual(my_dict, {0: 5, 1: 6, 2: 7})
+
     # TODO: consider add default dict
 
 
