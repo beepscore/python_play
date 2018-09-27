@@ -103,8 +103,24 @@ class TestDictionaries(unittest.TestCase):
         # python 3 dictionary maintains key order
         self.assertEqual(my_defaultdict, {'a': 5, 'e': 9, 'c': 0})
 
+        # get() doesn't trigger add key value pair
+        self.assertEqual(my_defaultdict.get('d'), None)
+
         # can 'freeze' dict by setting defaultfactory = None
         # https://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work#5900634
+
+        my_defaultdict.default_factory = None
+
+        # probably could test with assertRaises, don't know syntax yet
+        # self.assertRaises(KeyError, my_defaultdict['k'])
+
+        try:
+            # now this will throw KeyError
+            self.assertEqual(my_defaultdict['k'], 0)
+            # execution path not get here
+            self.assertTrue(False)
+        except KeyError as e:
+            self.assertTrue(True)
 
 
 if __name__ == '__main__':
