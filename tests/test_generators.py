@@ -30,6 +30,18 @@ class TestGenerators(unittest.TestCase):
             self.assertTrue(expect_throw_stop_iteration_exception)
             self.assertFalse(flag)
 
+    def test_mixed_generator_loop(self):
+
+        mixed = mixed_generator(2)
+        results = []
+
+        # loop implicitly calls next,
+        # and if all values have been yielded loop exits without throwing StopIteration exception
+        for value in mixed:
+            results.append(value)
+
+        self.assertEqual(results, [2, 'duck', 16])
+
 
 if __name__ == '__main__':
     unittest.main()
