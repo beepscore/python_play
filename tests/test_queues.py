@@ -27,6 +27,7 @@ class TestQueues(unittest.TestCase):
         q.put('a')
         q.put('b')
         q.put('c')
+        # LIFO. typically called "stack"
         self.assertEqual(q.get(), 'c')
         self.assertEqual(q.get(), 'b')
         self.assertEqual(q.get(), 'a')
