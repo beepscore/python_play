@@ -41,3 +41,20 @@ def fib_generator():
         # advance a and b, executes even though yield has yielded
         a, b = b, a + b
 
+
+def generator0():
+    """
+    uses a generator expression, syntax similar to list comprehension but more memory efficient
+    'Generator expressions are especially useful with functions like sum(), min(), and max()
+    that reduce an iterable input to a single value'
+    https://www.python.org/dev/peps/pep-0289/
+    :return:
+    """
+    start = 2
+    stop = 5
+    ge = (x**2 for x in range(start, stop))
+    # return generator expression.
+    # I think in this case ge is also a closure because it
+    # captures local scope variables start and stop
+    return ge
+

@@ -2,7 +2,7 @@
 
 import unittest
 import itertools
-from generators import fib_generator, mixed_generator
+from generators import fib_generator, generator0, mixed_generator
 
 
 class TestGenerators(unittest.TestCase):
@@ -46,6 +46,12 @@ class TestGenerators(unittest.TestCase):
     def test_fib_generator(self):
         actual = list(itertools.islice(fib_generator(), 12))
         self.assertEqual(actual, [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])
+
+    def test_generator0(self):
+        g0 = generator0()
+        self.assertEqual(next(g0), 4)
+        self.assertEqual(next(g0), 9)
+        self.assertEqual(next(g0), 16)
 
 
 if __name__ == '__main__':
