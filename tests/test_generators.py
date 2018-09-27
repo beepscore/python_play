@@ -48,7 +48,7 @@ class TestGenerators(unittest.TestCase):
         self.assertEqual(actual, [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])
 
     def test_generator0(self):
-        g0 = generator0()
+        g0 = generator0(3)
         self.assertEqual(next(g0), 4)
         self.assertEqual(next(g0), 9)
         self.assertEqual(next(g0), 16)

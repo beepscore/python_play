@@ -42,16 +42,17 @@ def fib_generator():
         a, b = b, a + b
 
 
-def generator0():
+def generator0(len_sequence):
     """
     uses a generator expression, syntax similar to list comprehension but more memory efficient
     'Generator expressions are especially useful with functions like sum(), min(), and max()
     that reduce an iterable input to a single value'
     https://www.python.org/dev/peps/pep-0289/
+    :param len_sequence: length of sequence to generate
     :return:
     """
     start = 2
-    stop = 5
+    stop = start + len_sequence
     ge = (x**2 for x in range(start, stop))
     # return generator expression.
     # I think in this case ge is also a closure because it
