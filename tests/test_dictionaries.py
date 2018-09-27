@@ -19,6 +19,16 @@ class TestDictionaries(unittest.TestCase):
         my_dict = {'a': 1, 'b': 5, 'd': -9}
         self.assertEqual(type(my_dict), dict)
 
+    def test_enumerate(self):
+        my_dict = {'a': 1, 'b': 5, 'd': -9}
+        actual = []
+        # to enumerate a dictionary use items()
+        # python3 dictionary guaranteed to maintain order
+        for key, value in my_dict.items():
+            actual.append(value)
+
+        self.assertEqual(actual, [1, 5, -9])
+
     def test_dict_mixed_values(self):
         """
         dict values may have different types. This is not unusual.
