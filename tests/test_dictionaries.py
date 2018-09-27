@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
+from collections import defaultdict
 
 
 class TestDictionaries(unittest.TestCase):
@@ -90,7 +91,19 @@ class TestDictionaries(unittest.TestCase):
         my_dict = {key: key + 5 for key in range(0, 3)}
         self.assertEqual(my_dict, {0: 5, 1: 6, 2: 7})
 
-    # TODO: consider add default dict
+    def test_defauldict(self):
+        kwargs = {'a': 5, 'e': 9}
+        # construct argument is a 'callable'
+        my_defaultdict = defaultdict(int, **kwargs)
+        self.assertEqual(my_defaultdict, {'a': 5, 'e': 9})
+
+        # defaultdict silently adds key,value pair ('c', 0)
+        self.assertEqual(my_defaultdict['c'], 0)
+        # python 3 dictionary maintains key order
+        self.assertEqual(my_defaultdict, {'a': 5, 'e': 9, 'c': 0})
+
+        # can 'freeze' dict by setting defaultfactory = None
+        # https://stackoverflow.com/questions/5900578/how-does-collections-defaultdict-work#5900634
 
 
 if __name__ == '__main__':
