@@ -32,6 +32,37 @@ class TestSets(unittest.TestCase):
         expected_no_order = {'a', False, 1}
         self.assertEqual(my_set, expected_no_order)
 
+    def test_set_union(self):
+        set0 = {1, 'a', False}
+        set1 = {'harvey', 'a'}
+        # in a or b
+        union = set0 | set1
+        self.assertEqual(union, {1, 'a', False, 'harvey'})
+
+    def test_set_intersection(self):
+        set0 = {1, 'a', False}
+        set1 = {'harvey', 'a'}
+        # in a and b
+        intersection = set0 & set1
+        self.assertEqual(intersection, {'a'})
+
+    def test_set_difference(self):
+        set0 = {1, 'a', False}
+        set1 = {'harvey', 'a'}
+        # in a and not in b
+        sym_diff = set0 - set1
+        self.assertEqual(sym_diff, {1, False})
+
+    def test_set_symmetric_difference(self):
+        set0 = {1, 'a', False}
+        set1 = {'harvey', 'a'}
+        # in a or b but not both. == union - intersection
+        sym_diff = set0 ^ set1
+        self.assertEqual(sym_diff, {1, False, 'harvey'})
+        union = set0 | set1
+        intersection = set0 & set1
+        self.assertEqual(sym_diff, union - intersection)
+
     def test_set_mutable(self):
         """
         set is mutable
