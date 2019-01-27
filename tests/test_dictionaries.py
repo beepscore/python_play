@@ -111,16 +111,20 @@ class TestDictionaries(unittest.TestCase):
 
         my_defaultdict.default_factory = None
 
-        # probably could test with assertRaises, don't know syntax yet
-        # self.assertRaises(KeyError, my_defaultdict['k'])
+        # naive non-idiomatic unit test raising an exception
+        # try:
+        #     # now this will throw KeyError
+        #     self.assertEqual(my_defaultdict['k'], 0)
+        #     # execution path not get here
+        #     self.assertTrue(False)
+        # except KeyError as e:
+        #     self.assertTrue(True)
 
-        try:
-            # now this will throw KeyError
-            self.assertEqual(my_defaultdict['k'], 0)
-            # execution path not get here
-            self.assertTrue(False)
-        except KeyError as e:
-            self.assertTrue(True)
+        # pythonic unit test raising an exception uses a context manager
+        # https://www.youtube.com/watch?v=6tNS--WetLI
+        # https://jeffknupp.com/blog/2016/03/07/python-with-context-managers/
+        with self.assertRaises(KeyError):
+            _ = my_defaultdict['k']
 
 
 if __name__ == '__main__':
