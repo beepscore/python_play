@@ -92,12 +92,10 @@ class TestDictionaries(unittest.TestCase):
         self.assertEqual(my_dict, {0: 5, 1: 6, 2: 7})
 
     def test_defauldict_default_factory_int(self):
-
         """
-        test collections.defaultdict
-        supplies defaultdictionary default_factory a 'callable'. e.g. int, list
+        test to show how to use collections.defaultdict
         default_factory = int tells defaultdict when adding a new key without a value, default value to int 0
-        documentation examples mentions this is useful for counting
+        collections.defaultdict examples mentions this is useful for counting
         https: // docs.python.org / 3.7 / library / collections.html  # collections.defaultdict
         """
         default_factory = int
@@ -133,6 +131,24 @@ class TestDictionaries(unittest.TestCase):
         # https://jeffknupp.com/blog/2016/03/07/python-with-context-managers/
         with self.assertRaises(KeyError):
             _ = my_defaultdict['k']
+
+    def test_defauldict_default_factory_list(self):
+        """
+        test to show how to use collections.defaultdict with default_factory list
+        from collections.defaultdict examples
+        https: // docs.python.org / 3.7 / library / collections.html  # collections.defaultdict
+        """
+        default_factory = list
+        my_defaultdict = defaultdict(default_factory)
+        s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+        for k, v in s:
+            # append to this key's list
+            my_defaultdict[k].append(v)
+
+        sorted_items = sorted(my_defaultdict.items())
+        expected = [('blue', [2, 4]), ('red', [1]), ('yellow', [1, 3])]
+
+        self.assertEqual(sorted_items, expected)
 
 
 if __name__ == '__main__':
