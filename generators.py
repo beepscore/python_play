@@ -33,7 +33,7 @@ def fib_generator():
     call like
         list(itertools.islice(fib_generator(), 12))
     https://stackoverflow.com/questions/1756096/understanding-generators-in-python#1756156
-    :return:
+    :return: next element in the Fibonacci sequence
     """
     a, b = 0, 1
     while True:
@@ -42,14 +42,13 @@ def fib_generator():
         a, b = b, a + b
 
 
-def generator0(len_sequence):
+def squared_generator_expression(len_sequence):
     """
-    uses a generator expression, syntax similar to list comprehension but more memory efficient
+    :param len_sequence: length of sequence to generate
+    :return: a generator expression, syntax similar to list comprehension but more memory efficient
     'Generator expressions are especially useful with functions like sum(), min(), and max()
     that reduce an iterable input to a single value'
     https://www.python.org/dev/peps/pep-0289/
-    :param len_sequence: length of sequence to generate
-    :return:
     """
     start = 2
     stop = start + len_sequence
