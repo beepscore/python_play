@@ -21,7 +21,7 @@ class TestDictionaries(unittest.TestCase):
         my_dict = {'a': 1, 'b': 5, 'd': -9}
         actual = []
         # to enumerate a dictionary use items()
-        # python3 dictionary guaranteed to maintain order
+        # python >= 3.6 dictionary maintains order
         for key, value in my_dict.items():
             actual.append(value)
 
@@ -91,14 +91,22 @@ class TestDictionaries(unittest.TestCase):
         my_dict = {key: key + 5 for key in range(0, 3)}
         self.assertEqual(my_dict, {0: 5, 1: 6, 2: 7})
 
-    def test_defauldict(self):
+    def test_defauldict_default_factory_int(self):
+
+        """
+        test collections.defaultdict
+        supplies defaultdictionary default_factory a 'callable'. e.g. int, list
+        default_factory = int tells defaultdict when adding a new key without a value, default value to int 0
+        documentation examples mentions this is useful for counting
+        https: // docs.python.org / 3.7 / library / collections.html  # collections.defaultdict
+        """
+        default_factory = int
         kwargs = {'a': 5, 'e': 9}
-        # constructor first argument is a 'callable'
-        # tells default dict to default to an int 0
-        my_defaultdict = defaultdict(int, **kwargs)
+        my_defaultdict = defaultdict(default_factory, **kwargs)
+
         self.assertEqual(my_defaultdict, {'a': 5, 'e': 9})
 
-        # defaultdict silently adds key,value pair ('c', 0)
+        # defaultdict silently adds key c with default value 0
         self.assertEqual(my_defaultdict['c'], 0)
         # python >= 3.6 dictionary maintains key order
         self.assertEqual(my_defaultdict, {'a': 5, 'e': 9, 'c': 0})
