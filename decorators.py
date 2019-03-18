@@ -51,7 +51,7 @@ def our_decorator(func):
 
 @our_decorator
 def foo(x):
-    print('Hi, foo has been called with ' + str(x))
+    print('foo has been called with ' + str(x))
 
 
 if __name__ == '__main__':
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     foo('Hi')
     """
     Before calling foo
-    Hi, foo has been called with Hi
+    foo has been called with Hi
     After calling foo
     """
 
