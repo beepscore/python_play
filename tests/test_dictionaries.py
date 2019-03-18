@@ -100,7 +100,7 @@ class TestDictionaries(unittest.TestCase):
 
         # defaultdict silently adds key,value pair ('c', 0)
         self.assertEqual(my_defaultdict['c'], 0)
-        # python 3 dictionary maintains key order
+        # python >= 3.6 dictionary maintains key order
         self.assertEqual(my_defaultdict, {'a': 5, 'e': 9, 'c': 0})
 
         # get() doesn't trigger add key value pair
