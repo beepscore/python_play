@@ -54,6 +54,9 @@ def make_records():
 
 make_records()
 
+print('make_records() didnt change records from outer scope.')
+print(records)
+
 
 
 
