@@ -13,6 +13,8 @@ https://stackoverflow.com/questions/21930705/zip-dictionary-of-lists-in-python
 
 input = {'key1': [1, 2, 3], 'key2': [4, 5, 6], 'key3': [7, 8, 9]}
 
+# keys() returns a "set-like" view that may be iterated over
+# https://docs.python.org/3.7/library/stdtypes.html#dict-views
 keys = list(input.keys())
 values = list(input.values())
 
