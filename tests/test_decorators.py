@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest
-from decorators import Decorators
+import sys
+sys.path.append(".")
+from python_play.decorators import Decorators
 
 
 class TestDecorators(unittest.TestCase):

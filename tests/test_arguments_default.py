@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest
-from arguments_default import func_param_mutable_default_antipattern, func_param_immutable_default_safer
+import sys
+sys.path.append(".")
+from python_play.arguments_default import func_param_mutable_default_antipattern, func_param_immutable_default_safer
 
 
 class TestArgumentsDefault(unittest.TestCase):

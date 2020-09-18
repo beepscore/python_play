@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest
-import animal
+import sys
+sys.path.append(".")
+from python_play import animal
 
 
 class TestAnimal(unittest.TestCase):

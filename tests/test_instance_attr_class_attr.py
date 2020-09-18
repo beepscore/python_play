@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest
-from instance_attr_class_attr import InstanceAttrClassAttr
+import sys
+sys.path.append(".")
+from python_play.instance_attr_class_attr import InstanceAttrClassAttr
 
 
 class TestInstanceAttrClassAttr(unittest.TestCase):

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 import unittest
-from arguments_variable_number import multiply_with_positional_args
-from arguments_variable_number import cat_plus_dog, sum_of_kwargs_values
+import sys
+sys.path.append(".")
+from python_play.arguments_variable_number import multiply_with_positional_args
+from python_play.arguments_variable_number import cat_plus_dog, sum_of_kwargs_values
 
 
 class TestArgumentsVariableNumber(unittest.TestCase):

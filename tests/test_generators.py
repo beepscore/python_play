@@ -2,7 +2,9 @@
 
 import unittest
 import itertools
-from generators import fib_generator, squared_generator_expression, mixed_generator
+import sys
+sys.path.append(".")
+from python_play.generators import fib_generator, squared_generator_expression, mixed_generator
 
 
 class TestGenerators(unittest.TestCase):

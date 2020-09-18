@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import unittest
-from attie import Attie
+import sys
+sys.path.append(".")
+from python_play.attie import Attie
 
 
 class TestPythonCollections(unittest.TestCase):
