@@ -50,7 +50,7 @@ def random_datetime(start_datetime: datetime, end_datetime: datetime) -> datetim
     :return: a valid datetime between start and end
     """
     delta = end_datetime - start_datetime
-    # int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
+    # random.random() returns a random number between 0.0 and 1.0
     random_offset = delta * random.random()
     return start_datetime + random_offset
 
