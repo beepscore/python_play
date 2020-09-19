@@ -40,7 +40,7 @@ def random_datetime_from_date_strings(start_date_string: str, end_date_string: s
     """
     date_format_iso = '%Y-%m-%d'
     start_datetime = datetime.datetime.strptime(start_date_string, date_format_iso)
-    end_datetime = datetime.datetime.strptime(start_date_string, date_format_iso)
+    end_datetime = datetime.datetime.strptime(end_date_string, date_format_iso)
     rand_dt = random_datetime(start_datetime, end_datetime)
     return rand_dt
 
@@ -52,7 +52,7 @@ def random_datetime(start_datetime: datetime, end_datetime: datetime) -> datetim
     :return: a valid datetime between start and end
     """
     delta = end_datetime - start_datetime
-    # int_delta = (delta.days * 24 * 60 * 60) + delta.seconds
+    # random.random() returns a random number between 0.0 and 1.0
     random_offset = delta * random.random()
     return start_datetime + random_offset
 
