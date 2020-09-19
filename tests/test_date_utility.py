@@ -40,7 +40,19 @@ class TestDateUtility(unittest.TestCase):
     def test_random_date_string_inferring_format_words(self):
         actual = random_date_string_inferring_format(start='1990-01-01', end='2020-12-31', date_string='June 16, 1998')
         print(f'test_random_date_string_inferring_format_words: actual= {actual}')
-        self.assertEqual(10, len(actual))
+        self.assertTrue(',' in actual)
+        self.assertTrue(' ' in actual)
+
+    def does_string_contain_a_month(self, date_string):
+        month_names = ('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August' 'September', 'October', 'November', 'December')
+        string_contains_month = [month_name in date_string for month_name in month_names]
+        return any(string_contains_month)
+
+    def test_random_date_string_inferring_format_month_words(self):
+        actual = random_date_string_inferring_format(start='1990-01-01', end='2020-12-31', date_string='October 12, 2005')
+        print(f'test_random_date_string_inferring_format_month_words: actual= {actual}')
+        # This is calling function to find month in array
+        self.assertTrue(self.does_string_contain_a_month(actual))
 
     def test_date_format_y2(self):
         actual = date_format_parse(date_string='01/13/75')
