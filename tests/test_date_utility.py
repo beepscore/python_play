@@ -22,16 +22,37 @@ class TestDateUtility(unittest.TestCase):
         self.assertEqual(8, len(actual_y2))
         self.assertEqual(10, len(actual_y4))
 
+    def test_random_datetime_words(self):
+        start_date_string = '1990-01-01'
+        end_date_string = '2020-12-31'
+        date_format_iso = '%Y-%m-%d'
+        start_datetime = datetime.datetime.strptime(start_date_string, date_format_iso)
+        end_datetime = datetime.datetime.strptime(end_date_string, date_format_iso)
+        actual = random_datetime(start_datetime=start_datetime, end_datetime=end_datetime)
+        actual_words = actual.strftime('%B %d, %Y')
+        self.assertTrue(',' in actual_words)
+        self.assertTrue(' ' in actual_words)
+
     def test_random_date_string_inferring_format(self):
         actual = random_date_string_inferring_format(start='1990-01-01', end='2020-12-31', date_string='2019-06-14')
         self.assertEqual(10, len(actual))
 
-    def test_date_format(self):
+    def test_random_date_string_inferring_format_words(self):
+        actual = random_date_string_inferring_format(start='1990-01-01', end='2020-12-31', date_string='June 16, 1998')
+        print(f'test_random_date_string_inferring_format_words: actual= {actual}')
+        self.assertEqual(10, len(actual))
+
+    def test_date_format_y2(self):
         actual = date_format_parse(date_string='01/13/75')
         self.assertEqual('%m/%d/%y', actual)
 
-        # actual_mm_dd_yy = datetime.date.strftime(actual, '%m/%d/%y')
-        # self.assertEqual('%m/%d/%Y', actual_mm_dd_yy)
+    def test_date_format_y4(self):
+        actual = date_format_parse(date_string='01/13/1975')
+        self.assertEqual('%m/%d/%Y', actual)
+
+    def test_date_format_words(self):
+        actual = date_format_parse(date_string='February 6, 1968')
+        self.assertEqual('%B %d, %Y', actual)
 
     def test_random_date_string_dash(self):
         date_fmt = '%m-%d-%y'
