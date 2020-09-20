@@ -57,16 +57,13 @@ def random_datetime(start_datetime: datetime, end_datetime: datetime) -> datetim
     return start_datetime + random_offset
 
 
-# FIXME:
 def date_format_parse(date_string: str) -> str:
     """
     :param date_string:
     :return: date format guessed from date_string, else based on first separator, else None
     """
-    # TODO: get actual format
 
     date_format = _guess_datetime_format(date_string)
-    # date_format = _guess_datetime_format(found_date)
     if date_format is not None:
         return date_format
     # preserve original separator character /, -, . " "
@@ -75,8 +72,6 @@ def date_format_parse(date_string: str) -> str:
     # e.g. found_date is '12/07/5'
     try:
         # specify format non ISO-8601
-        # TODO: see if can use format string to limit year to last 2 digits
-        date_format_capital_y = f"%m{separator}%d{separator}%Y"
         date_format_y = f"%m{separator}%d{separator}%y"
         return date_format_y
     except ValueError:
@@ -95,6 +90,7 @@ def date_separator(date_string: str) -> str:
     date_separator_types = ['/', '-', '.', ' ']
     match_date_sep = next((x for x in date_separator_types if x in date_string), False)
     return match_date_sep
+
 
 if __name__ == "__main__":
 
