@@ -3,7 +3,7 @@ import datetime
 # pandas private function
 from pandas.core.tools.datetimes import _guess_datetime_format
 import random
-from dateutil.parser import parse
+
 
 def random_date_string_inferring_format(start: str, end: str, date_string: str) -> str:
     """
